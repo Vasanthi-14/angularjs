@@ -1,0 +1,13 @@
+names=[{
+    name:"ganesh",
+    country:"india"
+},
+{
+    name:"ganesh",
+    country:"india"
+},
+{
+    name:"ganesh",
+    country:"india"
+},
+]

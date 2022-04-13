@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details</title>
+    <script src="angular.min.js"></script>
+</head>
+<style>
+    table, th , td  {
+      border: 2px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    </style>
+
+<body>
+    <center>
+        <h2>student details</h2>
+    
+    <div ng-app="mainApp" ng-controller="studentController">
+        <table>
+            <tr>
+        <th>rollno</th> 
+        <th>student Name</th>
+        <th>marks</th>
+        <th>Grades</th>
+            </tr>
+        <tr ng-repeat="subject in student">
+             <td>{{$index + 1}} </td>
+             <td>{{subject.name}}</td>
+             <td>{{subject. marks}}</td>
+             <td>{{subject.grades}}</td>
+        </tr>
+        </table>
+       <td>{{student[0].name}}</td> 
+        
+</div>
+<script>
+var mainapp = angular.module('mainApp', []);
+mainapp.controller('studentController', function($scope) {
+
+ 
+$scope.student=[
+    
+        {name:'Praveena',marks:90,grades:'A'},
+        {name:'Sam',marks:90,grades:'A'},
+        {name:'Kethi',marks:90,grades:'A'},
+        {name:'Ullal',marks:90,grades:'A'},
+
+    
+];
+});
+
+
+    </script>
+    
+    </center>
+</body>
+</html>
