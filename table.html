@@ -28,14 +28,15 @@
         <th>marks</th>
         <th>Grades</th>
             </tr>
-        <tr ng-repeat="subject in student">
-             <td>{{$index + 1}} </td>
+        <tr ng-repeat="subject in student" ng-class-even="'striped'">  
+            <td>{{x.Name}}</td>  
+            <td>{{x.marks}}
              <td>{{subject.name}}</td>
              <td>{{subject. marks}}</td>
              <td>{{subject.grades}}</td>
         </tr>
         </table>
-       <td>{{student[0].name}}</td>
+       
 
         
 </div>

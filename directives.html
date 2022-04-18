@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <style>  
+        .striped {  
+            color:white;  
+            background-color:grey;  
+        }  
+        </style>  
+</head>
+<body ng-app="myApp"> 
+<h1>show</h1>
+ Show HTML: <input type="checkbox" ng-model="myVar">
+<div ng-show="myVar">
+<h1>Welcome</h1>
+<p>Welcome to my home.</p>
+</div>
+  
+<h1>ng-minlength</h1>
+    <form name="myForm">
+ <input name="myInput" ng-model="myInput" ng-minlength="5">
+         <h1 ng-if="!myForm.myInput.$valid">The value is too short</h1>
+         </form>
+
+    <h1>hide</h1>
+Hide HTML: <input type="checkbox" ng-model="myVar">
+<div ng-hide="myVar">
+<h2>Welcome</h2>
+<p>Welcome to my home.</p>
+</div><br>
+
+    <h1>keyup</h1>
+<input ng-keyup="count = count + 1" ng-init="count=0" />
+<h1>{{count}}</h1>
+</div>
+
+<div>
+<h1>disable</h1>
+    <div ng-controller="myCtrl">
+
+    </div>click to disable<input type="checkbox" ng-model="all"><br>
+<br>
+
+<input type="text" ng-disabled="all">
+<input type="radio" ng-disabled="all">
+<select ng-disabled="all">
+<option>Female</option>
+<option>Male</option>  
+</select>
+</div>
+<div>
+<h1>mouseup</h1>
+<div ng-mouseup="u = u+ 1" ng-init="u=0">Click me!</div>
+
+<h1>{{d}}</h1>
+</div>
+<div>
+<h1>mousedown</h1>
+
+<div ng-mousedown="d = d + 1" ng-init="d=0">Click me!</div>
+
+<h1>{{d}}</h1>
+
+</div>
+<div>
+<h1>click</h1>  
+   <div ng-controller="myCtrl">
+
+    <button ng-click="count = count + 1" ng-init="count=0">OK</button>  
+<p>The button has been clicked <strong>{{count}} </strong>times.</p>  
+</div>
+</div>
+<div ng-controller="myCtrl"></div>
+<h1 ng-dblclick="dblclick = dblclick + 1" ng-init="dblclick=0">Double click on me!</h1>  
+<p>The header has been double-clicked<strong> {{dblclick}} </strong>times.</p>  
+</div>
+
+
+<div>
+  <h1>class-even</h1>
+    <table  ng-controller="myCtrl">  
+        
+        </select>
+    <tr ng-repeat="x in records" ng-class-even="'striped'">  
+
+      <td>{{x.Name}}</td>  
+      <td>{{x.Country}}</td>  
+    </tr> 
+     
+    </table>  
+      
+    <script>  
+    var app = angular.module("myApp", []);  
+    app.controller("myCtrl", function($scope) { 
+        
+      $scope.records = [  
+        {  
+          "Name" : "samantha",  
+          "Country" : "India"  
+        },  
+        {  
+          "Name" : "Savitri",  
+          "Country" : "India"  
+        },  
+        {  
+          "Name" : "sai pallavi",  
+          "Country" : "USA"  
+        },  
+        {  
+          "Name" : "Nawaz Sharif",  
+          "Country" : "Pakistan"  
+        }  
+      ]  
+    });  
+    </script>
+  </div>
+  
+    </body>  
+    </html>  
+    
+    
