@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filters</title>
+    <script src="angular.min.js"></script>
+</head>
+
+<body>
+    
+    <div ng-app="myApp" ng-controller="myCtrl">
+<h1>uppercase and lowercase filters : </h1>
+        <p>The name is {{ firstName | uppercase }}</p>
+        <p>The name is {{ lastName | lowercase }}</p>
+        
+  <h1>currency filters :</h1>  
+
+    <h2>Price: {{ price | currency :"Rs"}}</h2>
+    <h1>date filter:</h1>
+    <p>Date = {{ today | date }}</p>
+    <h1>number :</h1>
+    <h2>{{vasu | number}}</h2>
+
+    <h1>filter:</h1>
+
+    <ul>
+        <li ng-repeat="x in my| filter : 'n'">
+          {{ x }}
+        </li>
+      </ul>
+   
+
+    </div>
+    
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName = "samantha",
+       $scope.lastName = "rakhul",
+
+        
+        $scope.price = 14,
+        $scope.today=new Date(),
+        $scope.vasu=10000,
+        $scope.my=['amma','nanna','nanamma'];
+    
+    });
+    </script>
+    </body>
+</html>
+    
