@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="bmrApp" ng-controller="myCtrl">
+	<div>
+        		  <h3>Weight(lbs):</h3><input ng-model="weight"></input>
+		  
+		  <h3>Height(in):</h3><input  ng-model="height"></input>
+		  
+          <button class="button-primary" ng-click="bmiCalc()">your BMI is</button>
+		  <p ng-bind="bmi"></p>
+		
+	  </div>
+	  <button ng-mouseover="MouseOverCount = MouseOverCount + 1" ng-init="MouseOverCount=0">  
+      
+		<img src="https://tse1.mm.bing.net/th?id=OIP.aqSVE7TUcbsLCQdF_FPfRgHaEK&pid=Api&rs=1&c=1&qlt=95&w=201&h=113" alt="ganwshg">
+    </button></br>  
+	   Mouse Over: {{MouseOverCount}}  
+  </br></br> 
+   
+  <button ng-mousedown="MouseDownCount = MouseDownCount + 1" ng-init="MouseDownCount=0">  
+    <img src="https://tse1.mm.bing.net/th?id=OIP.fBYQQAMqYDFxOh5dWobzLgHaFj&pid=Api&rs=1&c=1&qlt=95&w=151&h=113">
+
+    
+    </button></br>  
+    Increment on Mouse Down: {{MouseDownCount}}  
+</br> 
+  
+<button ng-mouseup="MouseUpCount = MouseUpCount + 1" ng-init="MouseUpCount=0">  
+      <img src="https://tse1.mm.bing.net/th?id=OIP.avxhtQqr5FoubGjq4sIXugHaEo&pid=Api&rs=1&c=1&qlt=95&w=181&h=113" > 
+    </button></br>  
+    Increment on Mouse Up: {{MouseUpCount}}  
+</br>
+
+    <button ng-mouseenter="MouseEnterCount = MouseEnterCount + 1" ng-init="MouseEnterCount=0">  
+        <img src="https://s.yimg.com/fz/api/res/1.2/XnvZ3cUJZS25Jroo1wcHNw--~C/YXBwaWQ9c3JjaGRkO2ZpPWZpbGw7aD0zODQ7cT04MDt3PTUxMg--/https://s.yimg.com/am/60d/b067df828d4150912c9db1324f85ffb6"> 
+      </button></br>  
+      Increment on Mouse Enter: {{MouseEnterCount}}  
+  </br></br>  
+
+
+	  <script>
+	  var app = angular.module('bmrApp', []);
+
+app.controller('myCtrl', function ($scope){
+ $scope.height;
+ $scope.weight;
+ $scope.bmiCalc=function(){
+     $scope.bmi=$scope.weight/($scope.height*$scope.height);
+ }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="bmrApp">
+	<div class="container">
+	
+		
+		<hr>
+		<br>
+		<form ng-controller="mainCtrl">
+		  <h3>Weight(kg):</h3><input ng-change="computeBMI()" ng-model="stats.weightUS"></input>
+		  <br>
+		  <br>
+		  <h3>Height(in):</h3><input ng-change="computeBMI()" ng-model="stats.heightUS"></input>
+		  <br>
+		  <br>
+		  <b>Your BMI is:</b>
+		  <br>
+		 {{stats.BMI | number: 0}} 		  
+		</form>
+		
+	  </div>
+	  <script>
+	  var app = angular.module('bmrApp', []);
+
+app.controller('headerText', function ($scope){
+  $scope.mainHeader="Angular BMI Calculator";
+});
+
+
+app.controller('mainCtrl', function ($scope){
+  $scope.stats = {
+    weightUS: 0,
+    heightUS: 0,
+    BMI: 0};
+  
+  var computeBMI = function(){
+    $scope.stats.BMI = ($scope.stats.weightUS * 703) / ($scope.stats.heightUS * $scope.stats.heightUS) ;
+  }
+  
+  $scope.$watch('stats.weightUS', computeBMI);
+  $scope.$watch('stats.heightUS', computeBMI);
+});
+</script>
+</body>
+</html>
+
+
